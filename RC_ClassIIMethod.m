@@ -15,6 +15,7 @@ AR_wing = b_wing/c_wing;
 
 %Tail Weight Estimation
 asghasdgha
+ksfzncfseuidsui
 
 
 
