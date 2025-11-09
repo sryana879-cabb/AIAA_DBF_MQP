@@ -292,7 +292,7 @@ legend('Takeoff', 'Cruise', 'ROC', 'Turn', 'Stall');
 
 
 %plot(182.6609,1.2465, 'y*', 'MarkerSize',10,'Color',, color_laps, 'HandleVisibility','off');
-saveas(gcf, fullfile('C:\Users\gmbol\OneDrive\School Work\MQP', 'Constraint Diagram First Sensitivity.png'));
+%saveas(gcf, fullfile('C:\Users\gmbol\OneDrive\School Work\MQP', 'Constraint Diagram First Sensitivity.png'));
 
 %% ---- Updated Helper function for constraints ----
 compute_constraints = @(Vstall_val, CD0_val) deal( ...
@@ -405,7 +405,7 @@ ylabel('T/W');
 title('Constraint Diagram – V_{stall} Sensitivity (±20%)');
 legend('Location','northeast');
 ylim([0 3.5]); xlim([0 8]);
-saveas(gcf, fullfile('C:\Users\gmbol\OneDrive\School Work\MQP', 'Constraint Diagram Vstall Sensitivity.png'));
+%saveas(gcf, fullfile('C:\Users\gmbol\OneDrive\School Work\MQP', 'Constraint Diagram Vstall Sensitivity.png'));
 
 
 %% ---- Plot 2: Baseline + CD0 sensitivity ----
@@ -495,7 +495,7 @@ ylabel('T/W');
 title('Constraint Diagram – C_{D0} Sensitivity (±20%)');
 legend('Location','northeast');
 ylim([0 3.5]); xlim([0 8]);
-saveas(gcf, fullfile('C:\Users\gmbol\OneDrive\School Work\MQP', 'Constraint Diagram CD0.png'));
+%saveas(gcf, fullfile('C:\Users\gmbol\OneDrive\School Work\MQP', 'Constraint Diagram CD0.png'));
 
 
 
