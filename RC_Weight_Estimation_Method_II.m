@@ -10,6 +10,7 @@ params.rho_basswood = 22.5;    % Basswood (lb/ft^3) - typical range: 20-25
 params.rho_plywood = 35;       % Plywood (lb/ft^3)
 params.rho_foam = 2.5;         % Foam for LE/TE (lb/ft^3)
 params.rho_monokote = 0.8;     % Covering material (lb/ft^2)
+params.rho_carbonfiber = 93.64;  %Carbon Fiber (lb/ft^3)
    
     % ----- WING SPECIFICATIONS -----
 params.S_wing = 1.77;           % Wing area (ft^2)
@@ -18,18 +19,18 @@ params.c_mean = 0.59;           % Root chord (ft)
 params.t_c = 0.12;             % Thickness-to-chord ratio
     
     % Wing structure
-params.n_ribs = 12;                    % Number of ribs
-params.rib_thickness = 0.125 / 12;     % Rib thickness (ft)
-params.rib_material = params.rho_balsa;       % Rib material density
+params.n_ribs = 9;                    % Number of ribs
+params.rib_thickness = 1/(16*12);     % Rib thickness (ft)
+params.rib_material = params.rho_basswood;       % Rib material density
     
 params.n_spars = 2;                    % Number of spars
 params.spar_width = 0.25 / 12;         % Spar width (ft)
 params.spar_height = 0.5 / 12;         % Spar height (ft)
-params.spar_material = params.rho_basswood;   % Spar material density
+params.spar_material = params.rho_carbonfiber;   % Spar material density
     
-params.n_stringers = 4;                            % Number of stringers
+params.n_stringers = 6;                            % Number of stringers
 params.stringer_area = (0.125 * 0.125) / 144;      % Cross-sectional area (ft^2)
-params.stringer_material = params.rho_balsa;              % Stringer material density
+params.stringer_material = params.rho_basswood;              % Stringer material density
     
 params.skin_material = params.rho_monokote;   % Skin material density
     
