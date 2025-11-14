@@ -1,4 +1,4 @@
-function [W_wing, W_HT, W_VT, W_fuselage, W_structure, weight_details] = calculate_weights(p)
+ function [W_wing, W_HT, W_VT, W_fuselage, W_structure, weight_details] = calculate_weights(p)
 %% Wing Calculations
 AR_wing = p.b_wing^2/p.S_wing;
 
