@@ -74,7 +74,7 @@ params.fuse_skin_material = params.rho_monokote;  % Fuselage skin material
 
 %--------Booms----------
 params.n_booms = 2;                             
-params.boom_area = (3) / (8*144);
+params.boom_area = (3/8)^2/144;
 params.boom_material = params.rho_carbonfiber;
 
 
