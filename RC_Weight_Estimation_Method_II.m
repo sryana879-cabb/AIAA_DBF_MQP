@@ -15,7 +15,7 @@ params.rho_carbonfiber = 93.64;  %Carbon Fiber (lb/ft^3)
     % ----- WING SPECIFICATIONS -----
 params.S_wing = 1.77;           % Wing area (ft^2)
 params.b_wing = 3.0;           % Wing span (ft)
-params.c_mean = 0.59;           % Root chord (ft)
+params.c_mean = 0.59;           % mean chord (ft)
 params.tc_wing = 0.12;             % Thickness-to-chord ratio
     
     % Wing structure
@@ -58,8 +58,8 @@ params.VT_plate_thickness = 0.288 / 12;    % Plate thickness (ft) - NACA 0006
 params.VT_material = params.rho_basswood;            % VT material density
    
 % ----- FUSELAGE SPECIFICATIONS -----
-params.L_fuse = 20/12;           % Fuselage length (ft)
-params.W_fuse = 3.6/12;           % Fuselage width (ft)
+params.L_fuse = 17/12;           % Fuselage length (ft)
+params.W_fuse = 3.125/12;           % Fuselage width (ft)
 params.H_fuse = 3/12;           % Fuselage height (ft)
     
 params.n_frames = 20/2;                   % Number of frames
