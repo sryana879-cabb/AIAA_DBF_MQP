@@ -48,13 +48,13 @@ params.S_Ht = 0.168;                     % HT area (ft^2)
 params.b_HT = 14.4/12;                     % HT span (ft)
 params.t_c_HT = 0.10;                  % Thickness-to-chord ratio
 params.HT_structure_type = 'flat_plate';   % 'flat_plate' or 'wing_structure'
-params.HT_plate_thickness = 0.288 / 12;    % Plate thickness if flat plate (ft)- NACA 0006
+params.HT_plate_thickness = 0.27 / 12;    % Plate thickness if flat plate (ft)- NACA 0006
 params.HT_material = params.rho_basswood;            % HT material density
     
-    % ----- VERTICAL TAIL SPECIFICATIONS -----
-params.S_VT = 0.168/2;                     % VT area (ft^2)
-params.b_VT = 14.4/(12*2);                     % VT height (ft)
-params.VT_plate_thickness = 0.288 / 12;    % Plate thickness (ft) - NACA 0006
+    % ----- VERTICAL TAIL SPECIFICATIONS (for both tails)-----
+params.S_VT = 49.5/144;                     % VT area (ft^2)
+params.b_VT = 11/(12);                     % VT height (ft)
+params.VT_plate_thickness = 0.27 / 12;    % Plate thickness (ft) - NACA 0006
 params.VT_material = params.rho_basswood;            % VT material density
    
 % ----- FUSELAGE SPECIFICATIONS -----
