@@ -13,11 +13,11 @@ Re_HT = Re * cht_mean / cw_mean; % reynolds number of HT
 Re_VT = Re * cvt_mean / cw_mean; % reynolds number of VT
 k = 0.00083; % surface roughness of cast iron
 
-S = 1.77; % wing planform area
-S_wetW = 1.77*2 / 144; % inches, wetted area of wing
-S_wetHT = 80*2 / 144; % inches, wetted area of horizontal tail
-S_wetVT = 20*2 / 144; % inches, wetted area of vertical tail
-S_wetf = 273 / 144; % wetted area of fuselage
+S = 1.77; % feet^2, wing planform area
+S_wetW = 1.77*2; % feet, wetted area of wing
+S_wetHT = 80*2 / 144; % feet, wetted area of horizontal tail
+S_wetVT = 20*2 / 144; % feet, wetted area of vertical tail
+S_wetf = 198.9851 / 144; % feet, wetted area of fuselage
 S_wetg = 0.22; % average wetted area of landing gear
 
 % thickness to chord ratio t/c
@@ -45,8 +45,8 @@ L = 2; % airfoil thickness location parameter from Fig. 4.4
 
 % zero lift drag coefficient
 C_D0W = R_WF*C_fW*S_wetW/S; % wing
-C_D0HT = R_HTF*C_fHT*S_wetW/S; % HT
-C_D0VT = R_VTF*C_fVT*S_wetW/S; % VT
+C_D0HT = R_HTF*C_fHT*S_wetHT/S; % HT
+C_D0VT = R_VTF*C_fVT*S_wetVT/S; % VT
 C_D0F = R_FF*C_fF*S_wetf/S; % fuselage
 C_D0G = 0.00446; % landing gear, estimated
 
