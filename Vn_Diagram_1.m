@@ -11,7 +11,7 @@ CL3 = 4.15;
 Kc = 33;                  
 Ude = 12;
 Ude2 = 6;                 % fps
-V = linspace(0,600, 100); 
+V = linspace(0,300, 100); 
 
 % Kg and mug
 mug = 2 * (WS / (rho * c * g * CL3));
@@ -43,14 +43,11 @@ nlimgustDneg = 1 - ((Kg.*Ude2.*V.*CL3)./(498 .* WS));
 
 
 
-
-
-
-
 % Plot 
 figure; hold on; grid on;
 plot(V, n, 'c', 'LineWidth', 1);
 plot(V, n_neg, 'c','LineWidth', 1);
+yline(0, '--k', 'LineWidth', 1);
 yline(nlimpos, '--', 'LineWidth', 1);
 yline(nlimneg, '--', 'LineWidth', 1);
 yline(nultpos, '--m', 'LineWidth', 1);
@@ -78,7 +75,7 @@ text(10, nlimneg, ' nlim negagive', 'Color','k');
 text(10, nultpos, ' nult positive', 'Color','m');
 text(10, nultneg, ' nult negative', 'Color','m');
 
-
+% intersection points
 diff2 = nlimgustCneg - nultneg;
 idx2 = find(diff2 .* circshift(diff2,-1) <= 0, 1);   % where signs change
 V_int2 = V(idx2);
@@ -90,3 +87,4 @@ idx3 = find(diff3 .* circshift(diff3,-1) <= 0, 1);   % where signs change
 V_int3 = V(idx3);
 n_int3 = nlimgustDneg(idx3);
 xline(V_int3, 'm--', 'LineWidth', 1.5);
+
