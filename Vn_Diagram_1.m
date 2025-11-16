@@ -56,9 +56,13 @@ plot(V, nlimgustC, '--g', 'LineWidth', 1);
 plot(V, nlimgustCneg, '--g', 'LineWidth', 1);
 plot(V, nlimgustD, '--b', 'LineWidth', 1);
 plot(V, nlimgustDneg, '--b', 'LineWidth', 1);
-plot(Vcruise_min, 0, 'yo', 'MarkerFaceColor','y');
+plot(Vcruise_min, 0, 'ro', 'MarkerFaceColor','r');
+text(Vcruise_min, 0, '  VC min', 'HorizontalAlignment','right', 'VerticalAlignment','top', 'Color','r', 'FontWeight','bold');
 plot(Vstall, 0, 'ko', 'MarkerFaceColor', 'k');
+text(Vstall, 0, '  Vstall', 'HorizontalAlignment','right', 'VerticalAlignment','bottom', 'Color','k', 'FontWeight','bold');
 plot(Vdive_min, 0, 'bo', 'MarkerFaceColor', 'b');
+text(Vdive_min, 0, '  VD min', 'HorizontalAlignment','left', 'VerticalAlignment','bottom', 'Color','b', 'FontWeight','bold');
+
 %plot(Va, 0, 'ko', 'MarkerFaceColor', 'k');
 title('V-n Diagram');
 xlabel('V (ft/s)');
@@ -71,9 +75,10 @@ text(V(end), nlimgustCneg(end), ' Gust C -', 'Color','r', 'HorizontalAlignment',
 text(V(end), nlimgustD(end), ' Gust D +', 'Color','g', 'HorizontalAlignment','right');
 text(V(end), nlimgustDneg(end), ' Gust D -', 'Color','g', 'HorizontalAlignment','right');
 text(10, nlimpos, ' nlim positive', 'Color','k');
-text(10, nlimneg, ' nlim negagive', 'Color','k');
+text(10, nlimneg, ' nlim negative', 'Color','k');
 text(10, nultpos, ' nult positive', 'Color','m');
 text(10, nultneg, ' nult negative', 'Color','m');
+
 
 % intersection points
 diff2 = nlimgustCneg - nultneg;
@@ -81,10 +86,14 @@ idx2 = find(diff2 .* circshift(diff2,-1) <= 0, 1);   % where signs change
 V_int2 = V(idx2);
 n_int2 = nlimgustCneg(idx2);
 xline(V_int2, 'm--', 'LineWidth', 1.5);
+plot(V_int2, 0, 'ro', 'MarkerFaceColor', 'r');
+text(V_int2, 0, '  VC max', 'HorizontalAlignment','left', 'VerticalAlignment','bottom', 'Color','r', 'FontWeight','bold');
+
 
 diff3 = nlimgustDneg - nultneg;
 idx3 = find(diff3 .* circshift(diff3,-1) <= 0, 1);   % where signs change
 V_int3 = V(idx3);
 n_int3 = nlimgustDneg(idx3);
 xline(V_int3, 'm--', 'LineWidth', 1.5);
-
+plot(V_int3, 0, 'bo', 'MarkerFaceColor', 'b');
+text(V_int3, 0, '  VD max', 'HorizontalAlignment','left', 'VerticalAlignment','bottom', 'Color','b', 'FontWeight','bold');
