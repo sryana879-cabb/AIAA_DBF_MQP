@@ -1,6 +1,6 @@
 % V-n diagram
 close all; clear all; clc;
-g = 9.81;
+g =32.2;
 c = 7.08/12; % feet
 WS = 3.5;                 % lb/ft^2
 rho = 0.00230; % slugs/ft^3
