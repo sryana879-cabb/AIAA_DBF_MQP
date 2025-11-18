@@ -2,25 +2,25 @@
 %% Wing Calculations
 AR_wing = p.b_wing^2/p.S_wing;
 
-%Ribs
+%Ribs (with lightening factor for cutouts)
 rib_chord_avg = p.c_mean;
 rib_height = p.tc_wing*rib_chord_avg;
 rib_perimeter = 2 *(rib_chord_avg+rib_height);
 rib_area = rib_perimeter * p.rib_thickness;
-W_ribs = p.n_ribs *rib_area *p.rib_material;
+W_ribs = p.n_ribs * rib_area * p.rib_material * 0.4;
 
 %Spars
 spar_length = p.b_wing;
-spar_volume = p.n_spars * spar_length * p.spar_width *p.spar_height;
-W_spars = spar_volume*p.spar_material;
+spar_volume = p.n_spars * spar_length * p.spar_width * p.spar_height;
+W_spars = spar_volume * p.spar_material;
 
 %Stringers
 stringer_length = p.b_wing;
-W_stringers = p.n_stringers*p.stringer_area*stringer_length*p.stringer_material;
+W_stringers = p.n_stringers * p.stringer_area * stringer_length * p.stringer_material;
 
 %Skin
-W_skin = p.S_wing*p.skin_material;
-wing_volume =p.S_wing *p.c_mean*p.tc_wing;
+W_skin = p.S_wing * p.skin_material;
+wing_volume = p.S_wing * p.c_mean * p.tc_wing;
 
 W_wing = W_ribs + W_spars + W_stringers + W_skin;
 
@@ -38,17 +38,18 @@ c_VT = p.S_VT / p.b_VT;
 W_VT = p.S_VT * p.VT_plate_thickness * p.VT_material;
 
 %% Fuselage Calculations
+% Frames (with lightening factor for cutouts)
 frame_perimeter = 2*(p.W_fuse + p.H_fuse);
-W_frames = p.n_frames * frame_perimeter *p.frame_thickness *p.frame_material;
+W_frames = p.n_frames * frame_perimeter * p.frame_thickness * p.frame_material * 0.4;
 
 W_longeroons = p.n_longeroons * p.L_fuse * p.longeroon_area * p.longeroon_material;
 
-fuse_surface_area = 2*(p.W_fuse * p.L_fuse +p.H_fuse *p.L_fuse);
+fuse_surface_area = 2*(p.W_fuse * p.L_fuse + p.H_fuse * p.L_fuse);
 
 W_fuse_skin = fuse_surface_area * p.fuse_skin_material;
 
-W_booms = p.n_booms*p.L_fuse *p.boom_area *p.boom_material;
-W_fuselage = W_frames + W_longeroons + W_fuse_skin+ W_booms;
+W_booms = p.n_booms * p.L_fuse * p.boom_area * p.boom_material;
+W_fuselage = W_frames + W_longeroons + W_fuse_skin + W_booms;
 
 % %% Powerplant
 % 
@@ -79,6 +80,7 @@ weight_details.vertical_tail.total = W_VT;
     
 weight_details.fuselage.frames = W_frames;
 weight_details.fuselage.booms = W_booms;
+weight_details.fuselage.longeroons = W_longeroons;
 weight_details.fuselage.skin = W_fuse_skin;
 weight_details.fuselage.total = W_fuselage;
     
