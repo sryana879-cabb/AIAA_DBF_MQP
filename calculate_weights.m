@@ -1,4 +1,4 @@
- function [W_wing, W_HT, W_VT, W_fuselage, W_structure, weight_details] = calculate_weights(p)
+ function [W_wing, W_HT, W_VT, W_fuselage, W_structure, W_booms, weight_details] = calculate_weights(p)
 %% Wing Calculations
 AR_wing = p.b_wing^2/p.S_wing;
 
@@ -7,7 +7,7 @@ rib_chord_avg = p.c_mean;
 rib_height = p.tc_wing*rib_chord_avg;
 rib_perimeter = 2 *(rib_chord_avg+rib_height);
 rib_area = rib_perimeter * p.rib_thickness;
-W_ribs = p.n_ribs * rib_area * p.rib_material * 0.4;
+W_ribs = p.n_ribs * rib_area * p.rib_material;
 
 %Spars
 spar_length = p.b_wing;
@@ -40,7 +40,7 @@ W_VT = p.S_VT * p.VT_plate_thickness * p.VT_material;
 %% Fuselage Calculations
 % Frames (with lightening factor for cutouts)
 frame_perimeter = 2*(p.W_fuse + p.H_fuse);
-W_frames = p.n_frames * frame_perimeter * p.frame_thickness * p.frame_material * 0.4;
+W_frames = p.n_frames * frame_perimeter * p.frame_thickness * p.frame_material;
 
 W_longeroons = p.n_longeroons * p.L_fuse * p.longeroon_area * p.longeroon_material;
 
@@ -48,8 +48,10 @@ fuse_surface_area = 2*(p.W_fuse * p.L_fuse + p.H_fuse * p.L_fuse);
 
 W_fuse_skin = fuse_surface_area * p.fuse_skin_material;
 
+W_fuselage = W_frames + W_longeroons + W_fuse_skin;
+
+%% Boom
 W_booms = p.n_booms * p.L_fuse * p.boom_area * p.boom_material;
-W_fuselage = W_frames + W_longeroons + W_fuse_skin + W_booms;
 
 % %% Powerplant
 % 
@@ -62,7 +64,7 @@ W_fuselage = W_frames + W_longeroons + W_fuse_skin + W_booms;
 % W_external = p.W_landing_gear + p.W_extra_support;
 
 %% Total Weights
-W_structure = W_wing + W_HT + W_VT + W_fuselage;
+W_structure = W_wing + W_HT + W_VT + W_fuselage + W_booms;
 % W_empty = W_structure; %W_powerplant + W_flight_control + W_external ~ if added
 % W_takeoff = W_empty;% + p.W_payload ~ if added
 

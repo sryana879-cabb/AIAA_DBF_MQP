@@ -1,4 +1,4 @@
-function [W_wing, W_HT, W_VT, W_fuselage, W_structure, weight_details] = RC_Weight_Estimation_Method_II()
+function [W_wing, W_HT, W_VT, W_fuselage, W_structure, W_booms, weight_details] = RC_Weight_Estimation_Method_II()
 %% RC Aircraft Component Weight Estimation - Class II Method
 
 %% Create a parameters structure
@@ -9,13 +9,13 @@ params.rho_balsa = 5.5;        % Balsa wood (lb/ft^3) - typical range: 4-7
 params.rho_basswood = 22.5;    % Basswood (lb/ft^3) - typical range: 20-25
 params.rho_plywood = 35;       % Plywood (lb/ft^3)
 params.rho_foam = 2.5;         % Foam for LE/TE (lb/ft^3)
-params.rho_monokote = 0.8;     % Covering material (lb/ft^2)
+params.rho_monokote = 0.0125;     % Covering material (lb/ft^2)
 params.rho_carbonfiber = 93.64;  %Carbon Fiber (lb/ft^3)
    
     % ----- WING SPECIFICATIONS -----
-params.S_wing = 1.77;           % Wing area (ft^2)
+params.S_wing = 1.77;           % Wing area (ft^2) og = 1.77
 params.b_wing = 3.0;           % Wing span (ft)
-params.c_mean = 0.59;           % mean chord (ft)
+params.c_mean = 0.59;           % mean chord (ft), og = 0.59
 params.tc_wing = 0.12;             % Thickness-to-chord ratio
     
     % Wing structure
@@ -99,12 +99,12 @@ params.boom_material = params.rho_carbonfiber;
 % params.W_payload = 2.0;        % Payload weight (lb)
     
 %% Call calculation function with parameters structure
-[W_wing, W_HT, W_VT, W_fuselage, W_structure, weight_details] = calculate_weights(params);
+[W_wing, W_HT, W_VT, W_fuselage, W_structure, W_booms, weight_details] = calculate_weights(params);
     
 figure('Position', [100, 100, 900, 600]);
     
-labels = {'Wing', 'H-Tail', 'V-Tail', 'Fuselage'};
-weights = [W_wing, W_HT, W_VT, W_fuselage];
+labels = {'Wing', 'H-Tail', 'V-Tail', 'Fuselage', 'Booms'};
+weights = [W_wing, W_HT, W_VT, W_fuselage, W_booms];
     
 pie(weights, labels);
 title('RC Aircraft Structural Weight Breakdown', 'FontSize', 14, 'FontWeight', 'bold');
