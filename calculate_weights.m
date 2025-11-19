@@ -1,7 +1,7 @@
  function [W_wing, W_HT, W_VT, W_fuselage, W_structure, weight_details] = calculate_weights(p)
 %% Wing Calculations
 AR_wing = p.b_wing^2/p.S_wing;
-
+k
 %Ribs (with lightening factor for cutouts)
 rib_chord_avg = p.c_mean;
 rib_height = p.tc_wing*rib_chord_avg;
