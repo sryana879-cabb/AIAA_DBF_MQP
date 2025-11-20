@@ -4,7 +4,7 @@ close all; clear all; clc;
 g = 9.81;
 c = 7.08/12; % feet
 WS = 3.5;                 % lb/ft^2
-rho = 0.00230; % slugs/ft^3
+rho = 0.00230;    % slugs/ft^3
 Cl_max = 1.3642;
 Cn_max = Cl_max*1.1;
 CL3 = 4.15;
@@ -22,8 +22,8 @@ nlimpos = 3;
 nlimneg = -0.4 * nlimpos;
 
 % nults
-nultpos = 1.5*nlimpos;
-nultneg = 1.5*nlimneg;
+nultpos = 1.5 * nlimpos;
+nultneg = 1.5 * nlimneg;
 
 % Stall and Cruise
 Vstall = sqrt(2 * (WS / (rho * Cn_max)));
