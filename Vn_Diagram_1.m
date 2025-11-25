@@ -1,21 +1,6 @@
 % V-n diagram
 close all; clear all; clc;
-<<<<<<< HEAD
-
-g = 9.81;
-c = 7.08/12; % feet
-WS = 3.5;                 % lb/ft^2
-rho = 0.00230;    % slugs/ft^3
-Cl_max = 1.3642;
-Cn_max = Cl_max*1.1;
-CL3 = 4.15;
-Kc = 33;                  
-Ude = 12;
-Ude2 = 6;                 % fps
-V = linspace(0,300, 100); 
-
-=======
-g =32.2;
+g = 32.2;
 c = 7.08/12; % feet
 WS = 3.5;                 % lb/ft^2
 rho = 0.00230; % slugs/ft^3
@@ -26,24 +11,15 @@ Kc = 33;
 Ude = 12;
 Ude2 = 6;                 % fps
 V = linspace(0,300, 100);
->>>>>>> 5b599d49b8100251b342be68e58665c1d3ef49c1
 % Kg and mug
 mug = 2 * (WS / (rho * c * g * CL3));
 Kg = 0.88 * (mug / (5.3 + mug));
 % nlims
 nlimpos = 3;
 nlimneg = -0.4 * nlimpos;
-<<<<<<< HEAD
-
-% nults
-nultpos = 1.5 * nlimpos;
-nultneg = 1.5 * nlimneg;
-
-=======
 % nults
 nultpos = 1.5*nlimpos;
 nultneg = 1.5*nlimneg;
->>>>>>> 5b599d49b8100251b342be68e58665c1d3ef49c1
 % Stall and Cruise
 Vstall = sqrt(2 * (WS / (rho * Cn_max)));
 Vcruise_min = Kc*sqrt(WS);
@@ -57,14 +33,7 @@ nlimgustC = 1 + ((Kg.*Ude.*V.*CL3)./(498 .* WS));
 nlimgustCneg = 1 - ((Kg.*Ude.*V.*CL3)./(498 .* WS));
 nlimgustD = 1 + ((Kg.*Ude2.*V.*CL3)./(498 .* WS));
 nlimgustDneg = 1 - ((Kg.*Ude2.*V.*CL3)./(498 .* WS));
-<<<<<<< HEAD
-
-
-
-% Plot 
-=======
 % Plot
->>>>>>> 5b599d49b8100251b342be68e58665c1d3ef49c1
 figure; hold on; grid on;
 plot(V, n, 'c', 'LineWidth', 1);
 plot(V, n_neg, 'c','LineWidth', 1);
@@ -99,11 +68,6 @@ text(10, nlimpos, ' nlim positive', 'Color','k');
 text(10, nlimneg, ' nlim negative', 'Color','k');
 text(10, nultpos, ' nult positive', 'Color','m');
 text(10, nultneg, ' nult negative', 'Color','m');
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5b599d49b8100251b342be68e58665c1d3ef49c1
 % intersection points
 diff2 = nlimgustCneg - nultneg;
 idx2 = find(diff2 .* circshift(diff2,-1) <= 0, 1);   % where signs change
@@ -112,11 +76,6 @@ n_int2 = nlimgustCneg(idx2);
 xline(V_int2, 'm--', 'LineWidth', 1.5);
 plot(V_int2, 0, 'ro', 'MarkerFaceColor', 'r');
 text(V_int2, 0, '  VC max', 'HorizontalAlignment','left', 'VerticalAlignment','bottom', 'Color','r', 'FontWeight','bold');
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5b599d49b8100251b342be68e58665c1d3ef49c1
 diff3 = nlimgustDneg - nultneg;
 idx3 = find(diff3 .* circshift(diff3,-1) <= 0, 1);   % where signs change
 V_int3 = V(idx3);
@@ -124,8 +83,3 @@ n_int3 = nlimgustDneg(idx3);
 xline(V_int3, 'm--', 'LineWidth', 1.5);
 plot(V_int3, 0, 'bo', 'MarkerFaceColor', 'b');
 text(V_int3, 0, '  VD max', 'HorizontalAlignment','left', 'VerticalAlignment','bottom', 'Color','b', 'FontWeight','bold');
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 5b599d49b8100251b342be68e58665c1d3ef49c1
