@@ -3,21 +3,21 @@
 
 close all; clear all; clc; 
 
-cw_mean = 10.4; % inches, mean chord of wing
-cht_mean = 4; % inches, mean chord of HT
-cvt_mean = 4.5; % inches, mean chord of VT
-L_f = 17; % fuselage length
+cw_mean = 0.869*12; % inches, mean chord of wing
+cht_mean = 7.32; % inches, mean chord of HT
+cvt_mean = 5.27; % inches, mean chord of VT
+L_f = 18; % fuselage length
 Re = 0.369e6; % Reynolds number for wing
 Re_F = Re * L_f / cw_mean; % reynolds number of fuselage
 Re_HT = Re * cht_mean / cw_mean; % reynolds number of HT
 Re_VT = Re * cvt_mean / cw_mean; % reynolds number of VT
 k = 0.00083; % surface roughness of cast iron
 
-S = 3; % feet^2, wing planform area
+S = 3.02; % feet^2, wing planform area
 S_wetW = S*2; % feet, wetted area of wing
-S_wetHT = 80*2 / 144; % feet, wetted area of horizontal tail
-S_wetVT = 20*2 / 144; % feet, wetted area of vertical tail
-S_wetf = 198.9851 / 144; % feet, wetted area of fuselage
+S_wetHT = 171.73*2 / 144; % feet, wetted area of horizontal tail
+S_wetVT = 88.4*2 / 144; % feet, wetted area of vertical tail
+S_wetf = 213.58 / 144; % feet, wetted area of fuselage
 S_wetg = 0.22; % average wetted area of landing gear
 
 % thickness to chord ratio t/c
