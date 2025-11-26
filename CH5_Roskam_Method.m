@@ -7,7 +7,7 @@ cw_mean = 0.869*12; % inches, mean chord of wing
 cht_mean = 7.32; % inches, mean chord of HT
 cvt_mean = 5.27; % inches, mean chord of VT
 L_f = 18; % fuselage length
-Re = 0.369e6; % Reynolds number for wing
+Re = 2.4e5; % Reynolds number for wing
 Re_F = Re * L_f / cw_mean; % reynolds number of fuselage
 Re_HT = Re * cht_mean / cw_mean; % reynolds number of HT
 Re_VT = Re * cvt_mean / cw_mean; % reynolds number of VT
@@ -35,12 +35,13 @@ R_FF = 1.1;
 R_LSW = 1;
 R_LSHT = 1;
 
-% turbulent flate plate friction coefficient of the wing from Fig 4.3, increased 20% due to surface roughness
+% turbulent flate plate friction coefficient from Fig 4.3, increased 20% due to surface roughness
 C_fW = 0.0055 * 1.2; 
 C_fHT = 0.006 * 1.2;
 C_fVT = 0.006 * 1.2;
 C_fF = 0.0042 * 1.2;
 Cf_g = 1.0; 
+
 L = 2; % airfoil thickness location parameter from Fig. 4.4
 
 % zero lift drag coefficient
